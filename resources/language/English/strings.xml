@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+    <!-- Category strings -->
+    <string id="32010">No-IP host</string>
+    <string id="32011">No-IP e-mail</string>
+    <string id="32012">No-IP password</string>
+    <string id="32021">Update interval [hours]</string>
+    <string id="32030">There is an error with your settings</string>
+    <string id="32031">Update service not configured</string>
+    <string id="32032">You must configure this addon with your details</string>
+    <string id="32033">The settings page will now open</string>
+    <string id="32034">Authentication failed</string>
+    <!-- Category messages -->
+</strings>

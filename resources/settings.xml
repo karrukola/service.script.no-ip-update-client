@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting label="32021" type="labelenum" id="interval" values="6|12|24|48"/>
+    <setting type="sep"/>
+    <setting label="32010" type="text" id="host" default=""/>
+    <setting label="32011" type="text" id="username" default=""/>
+    <setting label="32012" type="text" id="password" default="" option="hidden"  enable="!eq(-1,)"/>
+</settings>
