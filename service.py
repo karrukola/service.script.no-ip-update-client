@@ -36,7 +36,7 @@ def doUpdate(myreq):
     try:
         resp = urllib2.urlopen(myreq)
         content = resp.read()
-        xbmc.log('Calling  update API', level=xbmc.LOGDEBUG);
+        xbmc.log(addonname+' Calling  update API', level=xbmc.LOGDEBUG);
     #urllib2 errors are a subclass of IOError
     except IOError as e_urllib2:
         xbmcgui.Dialog().ok(addonName,
@@ -44,7 +44,7 @@ def doUpdate(myreq):
             __language__(32034),
             str(e_urllib2.reason))
         content = ''
-        xbmc.log('Connection error: '+str(e_urllib2.reason),
+        xbmc.log(addonname+' Connection error: '+str(e_urllib2.reason),
             level=xbmc.LOGERROR);
     return content
 
