@@ -36,7 +36,7 @@ def doUpdate(myreq):
     try:
         resp = urllib2.urlopen(myreq)
         content = resp.read()
-        xbmc.log(addonname+' Calling  update API', level=xbmc.LOGDEBUG);
+        xbmc.log('krrkl|'+' Calling  update API', level=xbmc.LOGDEBUG);
     #urllib2 errors are a subclass of IOError
     except IOError as e_urllib2:
         xbmcgui.Dialog().ok(addonName,
@@ -44,7 +44,7 @@ def doUpdate(myreq):
             __language__(32034),
             str(e_urllib2.reason))
         content = ''
-        xbmc.log(addonname+' Connection error: '+str(e_urllib2.reason),
+        xbmc.log('krrkl|'+' Connection error: '+str(e_urllib2.reason),
             level=xbmc.LOGERROR);
     return content
 
@@ -81,12 +81,12 @@ def parseResponse(response):
         error = 1
         reason = ''
 
-    xbmc.log("error: "+str(error), level=xbmc.LOGDEBUG)
+    xbmc.log('krrkl|'+"error: "+str(error), level=xbmc.LOGDEBUG)
     if error:
-        xbmc.log("response: "+str(response), level=xbmc.LOGERROR)
+        xbmc.log('krrkl|'+"response: "+str(response), level=xbmc.LOGERROR)
     else:
-        xbmc.log("response: "+str(response), level=xbmc.LOGDEBUG)
-    xbmc.log("reason:"+reason, level=xbmc.LOGDEBUG)
+        xbmc.log('krrkl|'+"response: "+str(response), level=xbmc.LOGDEBUG)
+    xbmc.log('krrkl|'+"reason:"+reason, level=xbmc.LOGDEBUG)
 
     return error, reason
 
@@ -103,16 +103,16 @@ def readSettings(__addon__, UA):
     """
 
     interval =  __addon__.getSetting( 'interval' )
-    xbmc.log("Interval: "+interval, level=xbmc.LOGDEBUG)
+    xbmc.log('krrkl|'+"Interval: "+interval, level=xbmc.LOGDEBUG)
     period = int( interval ) * 3600
     myhst = __addon__.getSetting( 'host' )
-    xbmc.log("Host: "+myhst, level=xbmc.LOGDEBUG)
+    xbmc.log('krrkl|'+"Host: "+myhst, level=xbmc.LOGDEBUG)
 
     # TODO!!! Not logging someone's username and password
     myusr = __addon__.getSetting( 'username' )
-    # xbmc.log("usr: "+myusr, level=xbmc.LOGDEBUG)
+    # xbmc.log('krrkl|'+"usr: "+myusr, level=xbmc.LOGDEBUG)
     mypwd = __addon__.getSetting( 'password' )
-    # xbmc.log("pwd: "+mypwd, level=xbmc.LOGDEBUG)
+    # xbmc.log('krrkl|'+"pwd: "+mypwd, level=xbmc.LOGDEBUG)
 
     if myhst != '' and myusr != '' and mypwd != '':
         # Avoid including usename and password in the request, use https auth.
@@ -142,7 +142,7 @@ def readSettings(__addon__, UA):
 if __name__ == '__main__':
     while period <= 0:
         period, myreq = readSettings(__addon__, UA)
-        xbmc.log("period: "+str(period), level=xbmc.LOGDEBUG)
+        xbmc.log('krrkl|'+"period: "+str(period), level=xbmc.LOGDEBUG)
         if period == -1:
             xbmcgui.Dialog().ok(addonName,
                 __language__(32031),
