@@ -166,12 +166,13 @@ if __name__ == '__main__':
 
         resp = doUpdate(myreq)
         error = parseResponse(resp)
-        if error:
-            notif_ico = xbmcgui.NOTIFICATION_ERROR
-        else:
-            notif_ico = xbmcgui.NOTIFICATION_INFO
 
-        xbmcgui.Dialog().notification(addonName,
-            resp,
-            notif_ico
-            )
+        if __addon__.getSetting("shownotif") == "true":
+            if error == 0:
+                notif_ico = xbmcgui.NOTIFICATION_INFO
+            else:
+                notif_ico = xbmcgui.NOTIFICATION_ERROR
+            xbmcgui.Dialog().notification(addonName,
+                resp,
+                notif_ico
+                )
